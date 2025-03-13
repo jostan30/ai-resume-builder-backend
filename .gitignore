@@ -1,0 +1,9 @@
+.env*
+# Ignore downloaded Hugging Face models
+*.bin
+*.pt
+*.h5
+__pycache__/
+cache/
+models/
+venv
