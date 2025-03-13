@@ -10,7 +10,7 @@ logger = logging.getLogger(__name__)
 class AIGenerator:
     def __init__(self):
         # Use a better model for text generation
-        self.model_name = "gpt2-medium"  # Free and available on Hugging Face
+        self.model_name = "distilgpt2"  # Free and available on Hugging Face
         self.device = 0 if torch.cuda.is_available() else -1
         
         logger.info(f"Loading model: {self.model_name}")
@@ -58,7 +58,7 @@ SUMMARY: I am a skilled {job_title} with experience in"""
            # Extract the complete text after "SUMMARY: "
             summary_pattern = r"SUMMARY:\s*(.*?)(?:ENDMARKER|$)"
             summary_match = re.search(summary_pattern, generated_text, re.DOTALL)
-            
+
             if summary_match:
                 summary = summary_match.group(1).strip()
             else:
